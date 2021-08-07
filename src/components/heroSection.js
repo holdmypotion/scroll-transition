@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from '../styles/heroSection.module.css';
-import heroImage from '../assets/images/5.jpeg';
+import heroImage from '../assets/images/image.jpeg';
 
 export default function HeroSection() {
   return (
@@ -10,7 +10,6 @@ export default function HeroSection() {
       <div className={styles.imageContainer}>
         <img src={heroImage} alt='Model' />
       </div>
-      {/* <div style={{ background: '#030303', height: '3000px' }}></div> */}
     </div>
   );
 }
