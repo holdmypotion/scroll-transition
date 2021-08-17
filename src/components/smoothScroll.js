@@ -5,13 +5,15 @@ import {
   useSpring,
   motion,
 } from 'framer-motion';
+// 1.
 import useWindowSize from '../hooks/useWindowSize';
 
-const SmoothScroll = ({ children, offset }) => {
+const SmoothScroll = ({ children, offset = 1500 }) => {
   const size = useWindowSize();
   const scrollRef = useRef(null);
   const [pageHeight, setPageHeight] = useState(0);
 
+  // 2.
   useEffect(() => {
     const setBodyHeight = () => {
       setPageHeight(scrollRef.current.getBoundingClientRect().height);
@@ -19,17 +21,19 @@ const SmoothScroll = ({ children, offset }) => {
     setBodyHeight();
   }, [size.height, scrollRef]);
 
+  // 3.
   const { scrollY } = useViewportScroll();
   const transform = useTransform(
     scrollY,
     [offset, offset + pageHeight],
-    [size.height, -pageHeight]
+    [size.height, -(size.height + pageHeight)]
   );
   const physics = { damping: 15, mass: 0.27, stiffness: 95 };
   const spring = useSpring(transform, physics);
   console.log(pageHeight);
   return (
     <>
+      {/* 4. */}
       <motion.div
         ref={scrollRef}
         style={{
@@ -44,6 +48,7 @@ const SmoothScroll = ({ children, offset }) => {
       >
         {children}
       </motion.div>
+      {/* 5. */}
       <div style={{ height: pageHeight }} />
     </>
   );
