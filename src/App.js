@@ -3,9 +3,9 @@ import About from './components/about';
 
 export default function App() {
   return (
-    <>
+    <div>
       <HeroSection />
       <About />
-    </>
+    </div>
   );
 }
