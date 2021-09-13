@@ -3,7 +3,7 @@ import React from 'react';
 import { motion, useViewportScroll, useTransform } from 'framer-motion';
 
 import styles from '../styles/heroSection.module.css';
-import heroImage from '../assets/images/5.jpeg';
+import heroImage from '../assets/images/image.jpeg';
 
 export default function HeroSection({ offset = 1500 }) {
   // 2.
